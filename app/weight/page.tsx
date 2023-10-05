@@ -1,22 +1,28 @@
 'use client'
 
 import React from 'react';
-import { useAtom } from 'jotai';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Cross1Icon } from "@radix-ui/react-icons";
-import { ReloadIcon } from "@radix-ui/react-icons";
-
+import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
+
+import { atom, useAtom } from 'jotai';
 import { focusedAtom } from '@/components/Focused';
 import { kilogramsAtom } from './Kilograms';
 
 import { kilogramsDetails } from './Kilograms';
+import { milligramsDetails } from './Milligrams';
 import { gramsDetails } from './Grams';
 import { poundsDetails } from './Pounds';
+import { ouncesDetails } from './Ounces';
+import { tonnesDetails } from './Tonnes';
+import { microgramsDetails } from './Micrograms';
+
+const expandedAtom = atom(false);
 
 
 export default function Weight() {
+
+    const [expanded, setExpanded] = useAtom(expandedAtom);
 
     const [, setFocused] = useAtom(focusedAtom);
 
@@ -29,26 +35,28 @@ export default function Weight() {
 
   return (
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
-        <div className='flex justify-between items-baseline px-1'>
-            <h1 className="text-4xl font-extrabold tracking-tight pl-2">
-                Weight
-            </h1>
-            <div>
-                <Button variant="ghost" size="icon" onClick={() => clear()}>
-                        <ReloadIcon className='text-muted-foreground h-[1.2rem] w-[1.2rem] active:rotate-180 transition-all' />
-                </Button>
-                <Link href="/">
-                    <Button variant="ghost" size="icon" onClick={() => clear()}>
-                        <Cross1Icon className='text-muted-foreground h-[1.2rem] w-[1.2rem] active:rotate-90 transition-all' />
-                    </Button>
-                </Link>
-            </div>
-        </div>
+        <Header title='Weight' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry unitDetails={kilogramsDetails}  />
-            <UnitEntry unitDetails={gramsDetails}  />
-            <UnitEntry unitDetails={poundsDetails}  />
+            <UnitEntry unitDetails={kilogramsDetails} />
+            <UnitEntry unitDetails={poundsDetails} />
+            
+            {expanded ?
+                    <>
+                        <div className='mx-10 py-10 border-x '></div>
+                        <div className='mb-20'>
+                            <UnitEntry unitDetails={tonnesDetails} />
+                            <UnitEntry unitDetails={ouncesDetails} />
+                            <UnitEntry unitDetails={gramsDetails} />
+                            <UnitEntry unitDetails={milligramsDetails} />
+                            <UnitEntry unitDetails={microgramsDetails} />
+                        </div>
+                    </>   
+                :
+                    <div className='flex justify-center my-16'>
+                        <Button variant='ghost2' onClick={() => setExpanded(true)}>+ More Units</Button>
+                    </div>
+                }
 
         </div>
     </main>

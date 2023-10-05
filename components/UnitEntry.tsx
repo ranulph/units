@@ -44,15 +44,15 @@ export default function UnitEntry(
     };
 
     return (
-            <div className="flex items-center text-lg md:text-xl my-2 justify-between w-full h-12 p-4 rounded-xl border hover:bg-card hover:text-card-foreground hover:shadow active:shadow-inner transition-colors">
-                <div>
+            <div className="flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-card hover:text-card-foreground hover:shadow active:shadow-inner transition-colors">
+                <div className="flex-1 max-w-fit">
                     {unitDetails.name}
                 </div>
                 <div className='flex items-center'>
                     <div>
-                        <input autoFocus={autoFocus} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromCentralUnit} type='number' onFocus={() => focus(setUnitInput, unitFromCentralUnit)} onChange={(e) => change(e.currentTarget.value, unitDetails.name, setUnitInput, setCentralUnitFromUnit)} className='text-right w-full bg-transparent focus-visible:outline-none' />
+                        <input autoFocus={autoFocus} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromCentralUnit} type='number' onFocus={() => focus(setUnitInput, unitFromCentralUnit)} onChange={(e) => change(e.currentTarget.value, unitDetails.name, setUnitInput, setCentralUnitFromUnit)} className='text-right w-36 md:w-72 bg-transparent focus-visible:outline-none' />
                     </div>
-                    <div className='ml-1 text-md md:text-lg text-muted-foreground'>
+                    <div className='ml-1 text-md md:text-lg text-left w-5 text-muted-foreground'>
                         {unitDetails.unit}
                     </div>
                 </div>

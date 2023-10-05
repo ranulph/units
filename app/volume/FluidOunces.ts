@@ -10,7 +10,7 @@ export const fluidOuncesWorkerAtom = atom(
 
 export const fluidOuncesDetails = {
     name: 'Fluid Ounces',
-    unit: 'floz',
+    unit: 'fl.oz',
     atom: fluidOuncesAtom,
     workerAtom: fluidOuncesWorkerAtom,
     isCentralUnit: false

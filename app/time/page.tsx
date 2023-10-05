@@ -7,42 +7,49 @@ import UnitEntry from '@/components/UnitEntry';
 
 import { atom, useAtom } from 'jotai';
 import { focusedAtom } from '@/components/Focused';
-import { celsiusAtom } from './Celsius';
+import { minutesAtom } from './Minutes';
 
-import { celsiusDetails } from './Celsius';
-import { fahrenheitDetails } from './Fahrenheit';
-import { kelvinDetails } from './Kelvin';
-
+import { hoursDetails } from './Hours';
+import { minutesDetails } from './Minutes';
+import { daysDetails } from './Days';
+import { secondsDetails } from './Seconds';
+import { yearsDetails } from './Years';
+import { millisecondsDetails } from './Milliseconds';
 
 const expandedAtom = atom(false);
 
 
-export default function Length() {
+export default function Time() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 
     const [, setFocused] = useAtom(focusedAtom);
 
-    const [, setCelsius] = useAtom(celsiusAtom);
+    const [, setMinutes] = useAtom(minutesAtom);
 
     const clear = () => {
-        setCelsius(0)
+        setMinutes(0)
         setFocused('')
     };
 
   return (
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
-        <Header title='Temperature' clear={clear} />
+        <Header title='Time' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry autoFocus unitDetails={celsiusDetails} />
-            <UnitEntry unitDetails={fahrenheitDetails} />
+            <UnitEntry unitDetails={daysDetails} />
+            <UnitEntry unitDetails={hoursDetails} />
+            <UnitEntry autoFocus unitDetails={minutesDetails} />
+            <UnitEntry unitDetails={secondsDetails} />
+
 
             {expanded ?
                     <>
                         <div className='mx-10 py-10 border-x'></div>
                         <div className='mb-20'>
-                            <UnitEntry unitDetails={kelvinDetails} />
+                            <UnitEntry unitDetails={yearsDetails} />
+                            <UnitEntry unitDetails={millisecondsDetails} />
+                     
                         </div>
                     </>   
                 :

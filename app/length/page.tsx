@@ -42,7 +42,7 @@ export default function Length() {
         <div className='mt-1 px-1'>
 
             <UnitEntry unitDetails={millimetresDetails} />
-            <UnitEntry unitDetails={metresDetails} />
+            <UnitEntry autoFocus unitDetails={metresDetails} />
             <UnitEntry unitDetails={feetDetails} />
             <UnitEntry unitDetails={inchesDetails} />
 

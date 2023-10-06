@@ -13,5 +13,5 @@ export const yardsDetails = {
     unit: 'yd',
     atom: yardsAtom,
     workerAtom: yardsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

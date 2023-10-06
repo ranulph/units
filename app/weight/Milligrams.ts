@@ -13,5 +13,5 @@ export const milligramsDetails = {
     unit: 'mg',
     atom: milligramsAtom,
     workerAtom: milligramsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

@@ -13,5 +13,5 @@ export const centilitersDetails = {
     unit: 'cl',
     atom: centilitersAtom,
     workerAtom: centilitersWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

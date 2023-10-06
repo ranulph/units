@@ -13,5 +13,5 @@ export const pintsDetails = {
     unit: 'pt',
     atom: pintsAtom,
     workerAtom: pintsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

@@ -12,5 +12,5 @@ export const kilogramsDetails = {
     unit: 'kg',
     atom: kilogramsAtom,
     workerAtom: kilogramsWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };

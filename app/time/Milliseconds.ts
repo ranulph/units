@@ -13,5 +13,5 @@ export const millisecondsDetails = {
     unit: 'ms',
     atom: millisecondsAtom,
     workerAtom: millisecondsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

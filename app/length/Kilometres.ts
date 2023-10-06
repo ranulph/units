@@ -13,5 +13,5 @@ export const kilometresDetails = {
     unit: 'km',
     atom: kilometresAtom,
     workerAtom: kilometresWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

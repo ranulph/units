@@ -13,5 +13,5 @@ export const quartsDetails = {
     unit: 'qt',
     atom: quartsAtom,
     workerAtom: quartsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

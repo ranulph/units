@@ -13,5 +13,5 @@ export const gallonsDetails = {
     unit: 'gal',
     atom: gallonsAtom,
     workerAtom: gallonsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

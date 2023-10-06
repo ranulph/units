@@ -13,5 +13,5 @@ export const teaspoonsDetails = {
     unit: 'tsp',
     atom: teaspoonsAtom,
     workerAtom: teaspoonsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

@@ -13,5 +13,5 @@ export const inchesDetails = {
     unit: 'in',
     atom: inchesAtom,
     workerAtom: inchesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

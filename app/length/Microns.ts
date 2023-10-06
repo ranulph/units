@@ -13,5 +13,5 @@ export const micronsDetails = {
     unit: 'µm',
     atom: micronsAtom,
     workerAtom: micronsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

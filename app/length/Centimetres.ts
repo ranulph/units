@@ -13,5 +13,5 @@ export const centimetresDetails = {
     unit: 'cm',
     atom: centimetresAtom,
     workerAtom: centimetresWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

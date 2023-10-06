@@ -12,5 +12,5 @@ export const celsiusDetails = {
     unit: '°C',
     atom: celsiusAtom,
     workerAtom: celsiusWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };

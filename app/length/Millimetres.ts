@@ -13,5 +13,5 @@ export const millimetresDetails = {
     unit: 'mm',
     atom: millimetresAtom,
     workerAtom: millimetresWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

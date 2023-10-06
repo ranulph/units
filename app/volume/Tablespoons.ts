@@ -13,5 +13,5 @@ export const tablespoonsDetails = {
     unit: 'tblsp',
     atom: tablespoonsAtom,
     workerAtom: tablespoonsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

@@ -13,5 +13,5 @@ export const ukPintsDetails = {
     unit: 'pt',
     atom: ukPintsAtom,
     workerAtom: ukPintsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };  

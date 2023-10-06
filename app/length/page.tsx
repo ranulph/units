@@ -42,7 +42,9 @@ export default function Length() {
         <div className='mt-1 px-1'>
 
             <UnitEntry unitDetails={millimetresDetails} />
-            <UnitEntry autoFocus unitDetails={metresDetails} />
+            <UnitEntry unitDetails={metresDetails} />
+            <UnitEntry unitDetails={kilometresDetails} />
+            <UnitEntry unitDetails={milesDetails} />
             <UnitEntry unitDetails={feetDetails} />
             <UnitEntry unitDetails={inchesDetails} />
 
@@ -50,8 +52,6 @@ export default function Length() {
                     <>
                         <div className='mx-10 py-10 border-x '></div>
                         <div className='mb-20'>
-                            <UnitEntry unitDetails={milesDetails} />
-                            <UnitEntry unitDetails={kilometresDetails} />
                             <UnitEntry unitDetails={centimetresDetails} />
                             <UnitEntry unitDetails={yardsDetails} />
                             <UnitEntry unitDetails={nauticalMilesDetails} />

@@ -13,5 +13,5 @@ export const cupsDetails = {
     unit: 'cup',
     atom: cupsAtom,
     workerAtom: cupsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

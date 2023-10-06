@@ -42,7 +42,7 @@ export default function Volume() {
         <Header title='Volume' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry autoFocus unitDetails={litresDetails} />
+            <UnitEntry unitDetails={litresDetails} />
             <UnitEntry unitDetails={millilitresDetails} />
             <UnitEntry unitDetails={gallonsDetails} />
             <UnitEntry unitDetails={cupsDetails} />

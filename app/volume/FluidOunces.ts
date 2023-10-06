@@ -13,5 +13,5 @@ export const fluidOuncesDetails = {
     unit: 'fl.oz',
     atom: fluidOuncesAtom,
     workerAtom: fluidOuncesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

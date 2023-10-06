@@ -35,7 +35,7 @@ export default function Length() {
         <Header title='Temperature' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry autoFocus unitDetails={celsiusDetails} />
+            <UnitEntry unitDetails={celsiusDetails} />
             <UnitEntry unitDetails={fahrenheitDetails} />
 
             {expanded ?

@@ -13,5 +13,5 @@ export const feetDetails = {
     unit: 'ft',
     atom: feetAtom,
     workerAtom: feetWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

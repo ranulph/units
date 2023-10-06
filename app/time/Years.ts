@@ -13,5 +13,5 @@ export const yearsDetails = {
     unit: 'yr',
     atom: yearsAtom,
     workerAtom: yearsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

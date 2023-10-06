@@ -13,5 +13,5 @@ export const nauticalMilesDetails = {
     unit: 'NM',
     atom: nauticalMilesAtom,
     workerAtom: nauticalMilesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

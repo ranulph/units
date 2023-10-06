@@ -13,5 +13,5 @@ export const millilitresDetails = {
     unit: 'ml',
     atom: millilitresAtom,
     workerAtom: millilitresWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

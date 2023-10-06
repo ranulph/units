@@ -13,5 +13,5 @@ export const hoursDetails = {
     unit: 'hr',
     atom: hoursAtom,
     workerAtom: hoursWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

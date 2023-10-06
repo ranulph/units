@@ -13,5 +13,5 @@ export const daysDetails = {
     unit: 'd',
     atom: daysAtom,
     workerAtom: daysWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

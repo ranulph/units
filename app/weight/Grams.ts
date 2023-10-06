@@ -13,5 +13,5 @@ export const gramsDetails = {
     unit: 'g',
     atom: gramsAtom,
     workerAtom: gramsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

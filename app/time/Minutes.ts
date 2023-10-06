@@ -12,6 +12,6 @@ export const minutesDetails = {
     unit: 'min',
     atom: minutesAtom,
     workerAtom: minutesWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };
 

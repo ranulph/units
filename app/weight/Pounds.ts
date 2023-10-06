@@ -13,5 +13,5 @@ export const poundsDetails = {
     unit: 'lb',
     atom: poundsAtom,
     workerAtom: poundsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

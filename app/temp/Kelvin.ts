@@ -13,5 +13,5 @@ export const kelvinDetails = {
     unit: 'K',
     atom: kelvinAtom,
     workerAtom: kelvinWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

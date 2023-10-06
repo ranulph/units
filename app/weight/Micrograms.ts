@@ -13,5 +13,5 @@ export const microgramsDetails = {
     unit: 'µg',
     atom: microgramsAtom,
     workerAtom: microgramsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

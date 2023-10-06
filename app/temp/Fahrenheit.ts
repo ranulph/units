@@ -13,5 +13,5 @@ export const fahrenheitDetails = {
     unit: '°F',
     atom: fahrenheitAtom,
     workerAtom: fahrenheitWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

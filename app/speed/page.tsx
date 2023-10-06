@@ -36,7 +36,7 @@ export default function Length() {
         <Header title='Speed' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry autoFocus unitDetails={metresPSDetails} />
+            <UnitEntry unitDetails={metresPSDetails} />
             <UnitEntry unitDetails={kilometresPHDetails} />
             <UnitEntry unitDetails={feetPSDetails} />
             <UnitEntry unitDetails={milesPHDetails} />

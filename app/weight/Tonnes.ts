@@ -13,5 +13,5 @@ export const tonnesDetails = {
     unit: 't',
     atom: tonnesAtom,
     workerAtom: tonnesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

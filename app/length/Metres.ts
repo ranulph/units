@@ -12,5 +12,5 @@ export const metresDetails = {
     unit: 'm',
     atom: metresAtom,
     workerAtom: metresWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };

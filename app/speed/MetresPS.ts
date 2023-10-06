@@ -12,5 +12,5 @@ export const metresPSDetails = {
     unit: 'm/s',
     atom: metresPSAtom,
     workerAtom: metresPSWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };

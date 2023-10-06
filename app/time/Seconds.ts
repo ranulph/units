@@ -13,5 +13,5 @@ export const secondsDetails = {
     unit: 's',
     atom: secondsAtom,
     workerAtom: secondsWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

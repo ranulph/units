@@ -13,5 +13,5 @@ export const milesDetails = {
     unit: 'mi',
     atom: milesAtom,
     workerAtom: milesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

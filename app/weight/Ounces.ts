@@ -13,5 +13,5 @@ export const ouncesDetails = {
     unit: 'oz',
     atom: ouncesAtom,
     workerAtom: ouncesWorkerAtom,
-    isCentralUnit: false
+    isBaseUnit: false
 };

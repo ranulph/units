@@ -12,5 +12,5 @@ export const litresDetails = {
     unit: 'L',
     atom: litresAtom,
     workerAtom: litresWorkerAtom,
-    isCentralUnit: true
+    isBaseUnit: true
 };

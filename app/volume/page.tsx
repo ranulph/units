@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
 
-import { atom, useAtom } from 'jotai';
-import { focusedAtom } from '@/components/Focused';
+import { useAtom } from 'jotai';
+import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { litresAtom } from './Litres';
 
 import { litresDetails } from './Litres';
@@ -20,8 +20,6 @@ import { tablespoonsDetails } from './Tablespoons';
 import { ukPintsDetails } from './UKPints';
 import { teaspoonsDetails } from './Teaspoons';
 import { fluidOuncesDetails } from './FluidOunces';
-
-const expandedAtom = atom(false);
 
 
 export default function Volume() {

@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
 
-import { atom, useAtom } from 'jotai';
-import { focusedAtom } from '@/components/Focused';
+import { useAtom } from 'jotai';
+import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { metresAtom } from './Metres';
 
 import { metresDetails } from './Metres';
@@ -19,8 +19,6 @@ import { inchesDetails } from './Inches';
 import { milesDetails } from './Miles';
 import { yardsDetails } from './Yards';
 import { nauticalMilesDetails } from './NauticalMiles';
-
-const expandedAtom = atom(false);
 
 
 export default function Length() {

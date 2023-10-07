@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
 
-import { atom, useAtom } from 'jotai';
-import { focusedAtom } from '@/components/Focused';
+import { useAtom } from 'jotai';
+import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { minutesAtom } from './Minutes';
 
 import { hoursDetails } from './Hours';
@@ -16,7 +16,6 @@ import { secondsDetails } from './Seconds';
 import { yearsDetails } from './Years';
 import { millisecondsDetails } from './Milliseconds';
 
-const expandedAtom = atom(false);
 
 
 export default function Time() {

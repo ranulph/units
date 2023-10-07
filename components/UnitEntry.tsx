@@ -1,10 +1,8 @@
 'use client'
 
-import { atom, useAtom, PrimitiveAtom, WritableAtom } from "jotai";
+import { useAtom, PrimitiveAtom, WritableAtom } from "jotai";
 
-import { focusedAtom } from "@/components/Focused";
-
-const activeAtom = atom(false)
+import { focusedAtom, activeAtom } from "@/app/Atoms";
 
 export default function UnitEntry(
 { 
@@ -49,9 +47,6 @@ export default function UnitEntry(
         noRightBorder = true;
     }
     
-    const unitInputFormatted = unitInput.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    const unitFromBaseUnitFormatted = unitFromBaseUnit.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-
     return (
             <div data-norightborder={noRightBorder} className="data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-card hover:text-card-foreground hover:shadow active:shadow-inner transition-colors">
                 <div className="flex-1 max-w-fit" onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
@@ -60,12 +55,12 @@ export default function UnitEntry(
                 <div className='flex items-center'>
                     <div>
                         {active ?
-                        <input value={focused === '' ? '' : focused === unitDetails.name ? unitInputFormatted : unitFromBaseUnitFormatted} className='text-right w-36 md:w-64 bg-transparent focus-visible:outline-none' />
+                        <input value={focused === '' ? '' : focused === unitDetails.name ? unitInput.toLocaleString() : unitFromBaseUnit.toLocaleString()} onFocus={() => setActive(false)} className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                         :
-                        <input autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus(setUnitInput, unitFromBaseUnit)} onChange={(e) => change(e.currentTarget.value, unitDetails.name, setUnitInput, setBaseUnitFromUnit)} className='text-right w-36 md:w-64 bg-transparent focus-visible:outline-none' />
+                        <input autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus(setUnitInput, unitFromBaseUnit)} onChange={(e) => change(e.currentTarget.value, unitDetails.name, setUnitInput, setBaseUnitFromUnit)} type="number" className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                         }
                     </div>
-                    <div className='ml-1 text-md md:text-lg text-left w-6 text-muted-foreground'>
+                    <div className='ml-1 text-md md:text-lg text-left w-6 text-muted-foreground' onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
                         {unitDetails.unit}
                     </div>
                 </div>

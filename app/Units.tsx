@@ -3,16 +3,20 @@
 import { ModeToggle } from '@/components/ui/modetoggle';
 import UnitCard from '../components/UnitCard';
 import { Button } from '@/components/ui/button';
-import { atom, useAtom, useSetAtom } from 'jotai';
+import { useAtom, useSetAtom } from 'jotai';
 
-import { focusedAtom } from '@/components/Focused';
-
-const expandedAtom = atom(false);
+import { focusedAtom, cardsExpandedAtom, expandedAtom } from '@/app/Atoms';
 
 export default function Units() {
 
+    const [cardsExpanded, setCardsExpanded] = useAtom(cardsExpandedAtom);
     const setFocused = useSetAtom(focusedAtom);
-    const [expanded, setExpanded] = useAtom(expandedAtom);
+    const setExpanded = useSetAtom(expandedAtom);
+
+    const cardClick = () => {
+        setFocused('')
+        setExpanded(false)
+    }
 
     return (
         <>
@@ -24,7 +28,7 @@ export default function Units() {
                     <ModeToggle />
                 </div>
             </div>
-            <div className='flex flex-wrap justify-center mt-2' onClick={() => setFocused('')}>
+            <div className='flex flex-wrap justify-center mt-2' onClick={() => cardClick()}>
                 <UnitCard name='Weight' icon='weight' />
                 <UnitCard name='Length' icon='length' />
                 <UnitCard name='Temp' icon='thermo' />
@@ -32,24 +36,21 @@ export default function Units() {
                 <UnitCard name='Volume' icon='liquid' />
                 <UnitCard name='Currency' icon='currency' />
             </div>
-                {expanded ?
+                {cardsExpanded ?
                     <>
                         <div className='mx-10 py-10 mt-2 border-x'></div>
-                        <div className='flex flex-wrap justify-center mt-2 mb-20' onClick={() => setFocused('')}>
+                        <div className='flex flex-wrap justify-center mt-2 mb-20' onClick={() => cardClick()}>
                             <UnitCard name='Speed' icon='speed' />
                             <UnitCard name='Area' icon='area' />
                             <UnitCard name='Time' icon='time2' />
                             <UnitCard name='Pressure' icon='pressure' />
-                            <UnitCard name='Energy' icon='energy' />
-                            <UnitCard name='Power' icon='power' />
-                            <UnitCard name='Force' icon='force' />
                             <UnitCard name='Dry Volume' icon='volume' />
-                            <UnitCard name='Torque' icon='torque' />
+                            <UnitCard name='Energy' icon='energy' />
                         </div>   
                     </>
                 :
                     <div className='flex justify-center my-16'>
-                        <Button variant='ghost2' onClick={() => setExpanded(true)}>+ More Units</Button>
+                        <Button variant='ghost2' onClick={() => setCardsExpanded(true)}>+ More Units</Button>
                     </div>
                 }
         </>

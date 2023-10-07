@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function UnitCard({ name, icon }: { name: string; icon: string }) {
 
-    const linkPath = '/' + name.toLowerCase()
+    const linkPath = '/' + name.toLowerCase().replace(/ /g, '');
     const iconPath = 'icons/' + icon + '.svg'
 
     return (

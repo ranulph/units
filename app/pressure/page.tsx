@@ -7,11 +7,15 @@ import UnitEntry from '@/components/UnitEntry';
 
 import { useAtom } from 'jotai';
 import { expandedAtom, focusedAtom } from '@/app/Atoms';
-import { celsiusAtom } from './Celsius';
+import { pascalsAtom } from './Pascals';
 
-import { celsiusDetails } from './Celsius';
-import { fahrenheitDetails } from './Fahrenheit';
-import { kelvinDetails } from './Kelvin';
+import { pascalsDetails } from './Pascals';
+import { kilopascalsDetails } from './Kilopascals';
+import { megapascalsDetails } from './Megapascals';
+import { atomspheresDetails } from './Atmospheres';
+import { psiDetails } from './Psi';
+import { barDetails } from './Bar';
+import { millibarDetails } from './Millibar';
 
 
 export default function Length() {
@@ -20,26 +24,30 @@ export default function Length() {
 
     const [, setFocused] = useAtom(focusedAtom);
 
-    const [, setCelsius] = useAtom(celsiusAtom);
+    const [, setPascals] = useAtom(pascalsAtom);
 
     const clear = () => {
-        setCelsius(0)
+        setPascals(0)
         setFocused('')
     };
 
   return (
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
-        <Header title='Temp' clear={clear} />
+        <Header title='Pressure' clear={clear} />
         <div className='mt-1 px-1'>
 
-            <UnitEntry unitDetails={celsiusDetails} />
-            <UnitEntry unitDetails={fahrenheitDetails} />
+            <UnitEntry unitDetails={psiDetails} />
+            <UnitEntry unitDetails={atomspheresDetails} />
+            <UnitEntry unitDetails={pascalsDetails} />
+            <UnitEntry unitDetails={kilopascalsDetails} />
+            <UnitEntry unitDetails={megapascalsDetails} />
 
             {expanded ?
                     <>
-                        <div className='mx-10 py-10 border-x'></div>
+                        <div className='mx-10 py-10 border-x '></div>
                         <div className='mb-20'>
-                            <UnitEntry unitDetails={kelvinDetails} />
+                            <UnitEntry unitDetails={barDetails} />
+                            <UnitEntry unitDetails={millibarDetails} />
                         </div>
                     </>   
                 :

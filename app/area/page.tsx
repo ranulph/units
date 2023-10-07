@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
 
-import { atom, useAtom } from 'jotai';
-import { focusedAtom } from '@/components/Focused';
+import { useAtom } from 'jotai';
+import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { squareMetresAtom } from './SquareMetres';
 
 import { squareMetresDetails } from './SquareMetres';
@@ -15,8 +15,6 @@ import { hectareDetails } from './Hectare';
 import { squareFeetDetails } from './SquareFeet';
 import { squareKilometeresDetails } from './SquareKilometres';
 import { squareMilesDetails } from './SquareMiles';
-
-const expandedAtom = atom(false);
 
 
 export default function Length() {

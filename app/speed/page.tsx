@@ -16,7 +16,7 @@ import { milesPHDetails } from './MilesPH';
 import { knotsDetails } from './Knots';
 
 
-export default function Length() {
+export default function Speed() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

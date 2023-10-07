@@ -14,7 +14,7 @@ import { litresDetails } from './Litres';
 import { cubicFeetDetails } from './CubicFeet';
 import { cubicInchesDetails } from './CubicInches'; 
 
-export default function Weight() {
+export default function DryVolume() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

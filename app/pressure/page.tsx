@@ -18,7 +18,7 @@ import { barDetails } from './Bar';
 import { millibarDetails } from './Millibar';
 
 
-export default function Length() {
+export default function Pressure() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

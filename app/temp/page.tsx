@@ -14,7 +14,7 @@ import { fahrenheitDetails } from './Fahrenheit';
 import { kelvinDetails } from './Kelvin';
 
 
-export default function Length() {
+export default function Temp() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

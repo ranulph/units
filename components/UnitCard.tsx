@@ -17,7 +17,7 @@ export default function UnitCard({ name, icon }: { name: string; icon: string })
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <p className='text-center'>{name}</p>
+                            <p className='text-center font-medium text-foreground/30'>{name}</p>
                         </CardContent>
                     </Link>
                 </Card>

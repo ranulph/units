@@ -17,7 +17,7 @@ import { squareKilometeresDetails } from './SquareKilometres';
 import { squareMilesDetails } from './SquareMiles';
 
 
-export default function Length() {
+export default function Area() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

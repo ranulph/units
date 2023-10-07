@@ -13,7 +13,7 @@ import { caloriesDetails } from './Calories';
 import { kilojoulesDetails } from './Kilojoules';
 import { JoulesDetails } from './Joules';
 
-export default function Weight() {
+export default function Energy() {
 
     const [expanded, setExpanded] = useAtom(expandedAtom);
 

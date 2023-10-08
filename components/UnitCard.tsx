@@ -13,11 +13,11 @@ export default function UnitCard({ name, icon }: { name: string; icon: string })
                     <Link href={linkPath}>
                         <CardHeader>
                             <div className='flex justify-center'>
-                                <img src={iconPath} className='h-16 md:h-20' alt='weight' />
+                                <img src={iconPath} className='h-16 md:h-20' alt={name} />
                             </div>
                         </CardHeader>
                         <CardContent>
-                            <p className='text-center font-medium text-foreground/30'>{name}</p>
+                            <p className='text-center text-foreground/30'>{name}</p>
                         </CardContent>
                     </Link>
                 </Card>

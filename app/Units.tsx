@@ -5,18 +5,20 @@ import UnitCard from '../components/UnitCard';
 import { Button } from '@/components/ui/button';
 import { useAtom, useSetAtom } from 'jotai';
 
-import { focusedAtom, cardsExpandedAtom, expandedAtom } from '@/app/Atoms';
+import { focusedAtom, cardsExpandedAtom, expandedAtom, activeAtom } from '@/app/Atoms';
 
 export default function Units() {
 
     const [cardsExpanded, setCardsExpanded] = useAtom(cardsExpandedAtom);
     const setFocused = useSetAtom(focusedAtom);
     const setExpanded = useSetAtom(expandedAtom);
+    const setActive = useSetAtom(activeAtom);
 
     const cardClick = () => {
         setFocused('')
         setExpanded(false)
-    }
+        setActive(false)
+    };
 
     return (
         <>

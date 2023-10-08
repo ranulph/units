@@ -23,7 +23,7 @@ export function DatePicker({ atom, monthAtom, title, disabled }: { atom: Primiti
                     <Button
                         variant={"outline"}
                         className={cn(
-                            "w-[250px] justify-center text-center mx-3 h-12 active:scale-95",
+                            "w-[260px] justify-center text-center mx-3 h-12 active:scale-95",
                             !date && "text-muted-foreground"
                         )}
                         disabled={disabled}
@@ -32,7 +32,7 @@ export function DatePicker({ atom, monthAtom, title, disabled }: { atom: Primiti
                         {date ? format(date, "PPP") : <span>{title}</span>}
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent className="w-[260px] p-0 flex justify-center" align="start">
                     <Calendar
                     mode="single"
                     selected={date}

@@ -73,7 +73,7 @@ export default function Length() {
 
             <div className='mx-10 py-10 my-2 border-x'></div>
 
-            <Card className='mb-20 dark:active:scale-100 w-full hover:cursor-default hover:bg-inherit shadow active:shadow'>
+            <Card className='mb-32 dark:active:scale-100 w-full hover:cursor-default hover:bg-inherit shadow active:shadow'>
                 <CardContent className='flex flex-col mt-2'>
                     <div className='flex flex-col justify-center text-center'>
                         <div className='mt-5 mb-3 md:text-lg text-base text-accent-foreground font-medium text-center'>Add Days</div>

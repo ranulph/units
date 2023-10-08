@@ -1,150 +1,100 @@
 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
-import { atom, useAtom } from 'jotai';
-import { CalendarIcon } from '@radix-ui/react-icons';
-
-import intervalToDuration from 'date-fns/intervalToDuration'
-import formatDuration from 'date-fns/formatDuration'
-
-
-import formatDistanceStrict from 'date-fns/formatDistanceStrict'
+import { DatePicker } from '@/components/DatePicker';
+import AddEntry from '@/components/AddEntry';
+import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { countCal1Atom } from '@/app/Atoms';
+import { countCal1MonthAtom } from '@/app/Atoms';
+import { countCal2Atom } from '@/app/Atoms';
+import { countCal2MonthAtom } from '@/app/Atoms';
+import { dayDifferenceAtom } from '@/app/Atoms';
+import { differenceAtom } from '@/app/Atoms';
 
-
-
-import { focusedAtom } from '@/app/Atoms';
-
-const countCal1Atom = atom<Date | undefined>(undefined)
-const countCal2Atom = atom<Date | undefined>(undefined)
-const durationAtom = atom<Duration>(
-    get => intervalToDuration({
-        start: get(countCal1Atom) ?? 0,
-        end: get(countCal2Atom) ?? 0
-    })
-);
-const differenceAtom = atom(
-    get => formatDuration(get(durationAtom))
-);
-const dayDifferenceAtom = atom(
-    get => {
-            const daysString = formatDistanceStrict(get(countCal2Atom) ?? 0, get(countCal1Atom) ?? 0, { unit: 'day' })
-            const daysNumber = Number(daysString.replace(/[^0-9]/g, ""))
-            if (daysNumber < 31)
-                return ''
-            return ' (' + daysString + ')'
-    }
-);
+import { addCalAtom } from '@/app/Atoms';
+import { addCalMonthAtom } from '@/app/Atoms';
+import { additionAtom } from '@/app/Atoms';
+import { addDaysAtom } from '@/app/Atoms';
+import { addMonthsAtom } from '@/app/Atoms';
+import { addWeeksAtom } from '@/app/Atoms';
+import { addYearsAtom } from '@/app/Atoms';
 
 export default function Length() {
 
     const [countCal1, setCountCal1] = useAtom(countCal1Atom);
     const [countCal2, setCountCal2] = useAtom(countCal2Atom);
-    
-    const [difference, ] = useAtom(differenceAtom);
-    const [dayDifference, ] = useAtom(dayDifferenceAtom);
+    const setCountCal1Month = useSetAtom(countCal1MonthAtom);
+    const setCountCal2Month = useSetAtom(countCal2MonthAtom);
+    const difference = useAtomValue(differenceAtom);
+    const dayDifference = useAtomValue(dayDifferenceAtom);
 
-
-
-    const [, setFocused] = useAtom(focusedAtom);
-
+    const setAddCal = useSetAtom(addCalAtom);
+    const setAddCalMonth = useSetAtom(addCalMonthAtom);
+    const additionResult = useAtomValue(additionAtom)
+    const setDays = useSetAtom(addDaysAtom);
+    const setMonths = useSetAtom(addMonthsAtom);
+    const setWeeks = useSetAtom(addWeeksAtom);
+    const setYears = useSetAtom(addYearsAtom);
 
     const clear = () => {
         setCountCal1(undefined)
         setCountCal2(undefined)
+        setCountCal1Month(new Date())
+        setCountCal2Month(new Date())
+        setAddCal(undefined)
+        setAddCalMonth(new Date())
+        setDays(0)
+        setMonths(0)
+        setWeeks(0)
+        setYears(0)
     };
 
   return (
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
         <Header title='Date' date={true} clear={clear} />
-        <div className='mt-3 px-1 flex'>
+        <div className='px-1 flex flex-col'>
 
-            <Card className='dark:active:scale-100 w-full hover:cursor-default hover:bg-inherit'>
-                <CardHeader>
-                    <CardTitle className='text-lg md:text-xl font-normal'>Count Days</CardTitle>
-                </CardHeader>
+            <Card className='mt-3 dark:active:scale-100 w-full hover:cursor-default hover:bg-inherit shadow active:shadow'>
                 <CardContent className='flex flex-col mt-2'>
                     <div className='flex flex-col justify-center text-center'>
+                        <div className='mt-5 mb-3 md:text-lg text-base text-accent-foreground font-medium text-center'>Count Days</div>
 
-                        <div>
-                            <Popover key={countCal1?.getDate()}>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant={"outline"}
-                                        className={cn(
-                                            "w-[250px] justify-center text-center mx-3 h-12 active:scale-90",
-                                            !countCal1 && "text-muted-foreground"
-                                        )}
-                                        >
-                                        <CalendarIcon className="mr-2 h-4 w-4" />
-                                        {countCal1 ? format(countCal1, "PPP") : <span>Start Date</span>}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                    mode="single"
-                                    selected={countCal1}
-                                    onSelect={setCountCal1}
-                                    initialFocus
-                                    />
-                                </PopoverContent>
-                            </Popover>
-                            <div className='flex justify-center'>
-                                <Button variant={"link"} className='w-fit' onClick={() => setCountCal1(new Date())}>Today</Button>
-                            </div>
-                        </div>
+                        <DatePicker atom={countCal1Atom} monthAtom={countCal1MonthAtom} title='Start Date' />
+                        <DatePicker atom={countCal2Atom} monthAtom={countCal2MonthAtom} title='End Date' disabled={countCal1 === undefined}/>
 
-                        <div className='my-4' />
-
-                        <div>
-                            <Popover key={countCal2?.getDate()}>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant={"outline"}
-                                        className={cn(
-                                            "w-[250px] justify-center text-center mx-3 h-12 active:scale-90",
-                                            !countCal2 && "text-muted-foreground"
-                                        )}
-                                        >
-                                        <CalendarIcon className="mr-2 h-4 w-4" />
-                                        {countCal2 ? format(countCal2, "PPP") : <span>End Date</span>}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                    mode="single"
-                                    selected={countCal2}
-                                    onSelect={setCountCal2}
-                                    initialFocus
-                                    />
-                                </PopoverContent>
-                            </Popover>
-                            <div className='flex justify-center'>
-                                <Button variant={"link"} className='w-fit' onClick={() => setCountCal2(new Date())}>Today</Button>
-                            </div>
-                            <div className='mt-6 md:text-lg text-base border'>{countCal2 !== undefined && difference}{countCal2 !== undefined && dayDifference}</div>
-                        </div>
+                        <div className='mt-5 h-8 md:text-lg text-base text-accent-foreground font-medium text-center underline decoration-[#506247] underline-offset-8'>{countCal2 !== undefined && difference}{countCal2 !== undefined && dayDifference}</div>
                     </div>
                 </CardContent>
             </Card>
 
+            <div className='mx-10 py-10 my-2 border-x'></div>
+
+            <Card className='mb-20 dark:active:scale-100 w-full hover:cursor-default hover:bg-inherit shadow active:shadow'>
+                <CardContent className='flex flex-col mt-2'>
+                    <div className='flex flex-col justify-center text-center'>
+                        <div className='mt-5 mb-3 md:text-lg text-base text-accent-foreground font-medium text-center'>Add Days</div>
+
+                        <DatePicker atom={addCalAtom} monthAtom={addCalMonthAtom} title='Start Date' />
+
+                        <div className='flex justify-center mt-1'>
+                            <AddEntry name='Days' atom={addDaysAtom} />
+                            <AddEntry name='Months' atom={addMonthsAtom} />
+                        </div>
+                        <div className='flex justify-center'>
+                            <AddEntry name='Weeks' atom={addWeeksAtom} />
+                            <AddEntry name='Years' atom={addYearsAtom} />
+                        </div>
+
+                        <div className='mt-5 h-8 md:text-lg text-base text-accent-foreground font-medium text-center underline decoration-[#506247] underline-offset-8'>{additionResult ? format(additionResult, "PPP") : "" }</div>
+
+                    </div>
+                </CardContent>  
+            </Card>
+           
         </div>
     </main>
   )

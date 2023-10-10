@@ -29,16 +29,12 @@ export const durationAtom = atom<Duration>(
 );
 export const differenceAtom = atom(
     get => {
-            const duration = get(durationAtom)
-            duration.hours = 0;
-            duration.minutes = 0;
-            duration.seconds = 0;
-            return formatDuration(duration);
+            return formatDuration(get(durationAtom), { format: ['years', 'months', 'weeks', 'days'] });
     }
 );
 export const dayDifferenceAtom = atom(
     get => {
-            const daysString = formatDistanceStrict(get(countCal2Atom) ?? 0, get(countCal1Atom) ?? 0, { unit: 'day' })
+            const daysString = formatDistanceStrict(get(countCal2Atom) ?? 0, get(countCal1Atom) ?? 0, { unit: 'day', roundingMethod: 'floor' })
             const daysNumber = Number(daysString.replace(/[^0-9]/g, ""))
             if (daysNumber < 31)
                 return ''

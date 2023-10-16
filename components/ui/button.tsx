@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary dark:text-neutral-300 text-neutral-600 shadow-sm hover:bg-secondary/50",
         ghost: "lg:hover:bg-accent lg:hover:text-accent-foreground active:shadow-inner border border-transparent lg:hover:border-neutral-300 lg:dark:hover:border-neutral-700 dark:hover:bg-neutral-800/50 active:scale-95",
-        ghost2: "text-medium lg:hover:bg-accent dark:text-neutral-400 md:text-base text-sm font-normal text-neutral-600 active:shadow-inner border border-transparent lg:hover:border-neutral-300 lg:dark:hover:border-neutral-700 dark:hover:bg-neutral-800/50",
+        ghost2: "text-medium lg:hover:bg-accent dark:text-neutral-400 md:text-base text-sm font-normal text-neutral-600 active:shadow-inner border border-transparent lg:hover:border-neutral-300 lg:dark:hover:border-neutral-700 dark:hover:bg-neutral-800/50 active:scale-95",
         link: "text-primary underline-offset-4 hover:underline text-muted-foreground",
       },
       size: {

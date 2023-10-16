@@ -24,17 +24,17 @@ export default function UnitEntry(
     const [unitInput, setUnitInput] = useAtom(unitDetails.atom);
     const [unitFromBaseUnit, setBaseUnitFromUnit] = useAtom(unitDetails.workerAtom);
 
-    const focus = (setUnitInput: (value: number) => void, unitFromCentralUnit: number) => {
+    const focus = () => {
         if (!unitDetails.isBaseUnit) {
-            setUnitInput(Number(unitFromCentralUnit.toFixed(2)))
+            setUnitInput(Number(unitFromBaseUnit.toFixed(2)))
         }
     };
 
-    const change = (unitInput: string, name: string, setUnitInput: (value: number) => void, setBaseUnitFromUnit: () => void) => {
+    const change = (unitInput: string) => {
         if (unitInput === '') {
             setFocused('')
         } else {
-            setFocused(name)
+            setFocused(unitDetails.name)
         }
         setUnitInput(Number(unitInput))
         if (!unitDetails.isBaseUnit) {
@@ -57,7 +57,7 @@ export default function UnitEntry(
                         {active ?
                         <input value={focused === '' ? '' : focused === unitDetails.name ? unitInput.toLocaleString() : unitFromBaseUnit.toLocaleString()} onFocus={() => setActive(false)} className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                         :
-                        <input autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus(setUnitInput, unitFromBaseUnit)} onChange={(e) => change(e.currentTarget.value, unitDetails.name, setUnitInput, setBaseUnitFromUnit)} type="number" className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
+                        <input autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus()} onChange={(e) => change(e.currentTarget.value)} type="number" className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                         }
                     </div>
                     <div className='ml-1 text-md md:text-lg text-left w-6 text-muted-foreground' onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>

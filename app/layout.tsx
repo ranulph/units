@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     viewportFit: 'cover'
   },
   manifest: "https://units.run/site.webmanifest",
-  icons: [{ rel: "icon", url: "https://units.run/u192.png" }, { rel: "apple-touch-icon", url: "https://units.run/u192.png" }],
+  icons: [{ rel: "icon", url: "https://units.run/android/android-launchericon-512-512.png" }, { rel: "apple-touch-icon", url: "https://units.run/ios/512.png" }],
   openGraph: {
     type: "website",
     url: "https://units.run",

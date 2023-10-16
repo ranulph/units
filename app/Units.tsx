@@ -5,7 +5,7 @@ import UnitCard from '../components/UnitCard';
 import { Button } from '@/components/ui/button';
 import { useAtom, useSetAtom } from 'jotai';
 
-import { focusedAtom, cardsExpandedAtom, expandedAtom, activeAtom } from '@/app/Atoms';
+import { focusedAtom, cardsExpandedAtom, expandedAtom, activeAtom, swapViewAtom } from '@/app/Atoms';
 
 export default function Units() {
 
@@ -13,11 +13,13 @@ export default function Units() {
     const setFocused = useSetAtom(focusedAtom);
     const setExpanded = useSetAtom(expandedAtom);
     const setActive = useSetAtom(activeAtom);
+    const setSwapView = useSetAtom(swapViewAtom);
 
     const cardClick = () => {
-        setFocused('')
-        setExpanded(false)
-        setActive(false)
+        setFocused('');
+        setExpanded(false);
+        setActive(false);
+        setSwapView(false);
     };
 
     return (

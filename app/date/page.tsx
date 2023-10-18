@@ -58,7 +58,7 @@ export default function DateTools() {
         <Header title='Date' date={true} clear={clear} />
         <div className='px-1 flex flex-col'>
 
-            <Card className='mt-3 active:scale-100 w-full hover:cursor-default hover:bg-transparent dark:hover:bg-transparent shadow'>
+            <Card className='mt-3 active:scale-100 w-full hover:cursor-default hover:bg-transparent dark:hover:bg-transparent active:shadow-none'>
                 <CardContent className='flex flex-col mt-2'>
                     <div className='flex flex-col justify-center text-center'>
                         <div className='mt-5 mb-3 md:text-lg text-base text-accent-foreground font-medium text-center'>Count Days</div>
@@ -73,7 +73,7 @@ export default function DateTools() {
 
             <div className='mx-10 py-10 my-2 border-x'></div>
 
-            <Card className='mb-32 active:scale-100 w-full hover:cursor-default hover:bg-transparent dark:hover:bg-transparent shadow'>
+            <Card className='mb-32 active:scale-100 w-full hover:cursor-default hover:bg-transparent dark:hover:bg-transparent active:shadow-none'>
                 <CardContent className='flex flex-col mt-2'>
                     <div className='flex flex-col justify-center text-center'>
                         <div className='mt-5 mb-3 md:text-lg text-base text-accent-foreground font-medium text-center'>Add Days</div>

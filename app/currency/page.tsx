@@ -7,6 +7,7 @@ import CurrencyEntry from '@/components/CurrencyEntry';
 import { LoopIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import useSWR from 'swr';
 import { token } from "@/app/token";
+import { motion } from 'framer-motion';
 
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { currenciesAtom, currencyRatesAtom, focusedAtom, swapViewAtom } from '../Atoms';
@@ -50,7 +51,11 @@ export default function Currency() {
   return (  
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
         <Header title='Currency' clear={clear} currency={true} />
-        <div className='mt-1 px-1'>
+        <motion.div layout
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 0 }} 
+        className='mt-1 px-1'>
 
             <CurrencyEntry currencyObj={currencies[0]} valueAtom={currency0ValueAtom} workerAtom={currency0WorkerAtom} flagAtom={currency0FlagAtom} />
             <CurrencyEntry currencyObj={currencies[1]} valueAtom={currency1ValueAtom} workerAtom={currency1WorkerAtom} flagAtom={currency1FlagAtom} />
@@ -59,7 +64,8 @@ export default function Currency() {
             <CurrencyEntry currencyObj={currencies[4]} valueAtom={currency4ValueAtom} workerAtom={currency4WorkerAtom} flagAtom={currency4FlagAtom} />
             <CurrencyEntry currencyObj={currencies[5]} valueAtom={currency5ValueAtom} workerAtom={currency5WorkerAtom} flagAtom={currency5FlagAtom} />
 
-            <div className='flex justify-center my-16'>
+            <div 
+            className='flex justify-center my-16'>
               <Button onClick={() => setSwapView(!swapView)} variant='ghost2'>
                 {swapView ? 
                 <><ArrowLeftIcon className='animate-pulse text-muted-foreground h-[1.2rem] w-[1.2rem] mr-1'/>Go Back</>
@@ -68,7 +74,7 @@ export default function Currency() {
                 }
               </Button>
             </div>
-        </div>
+        </motion.div>
     </main>
   )
 }

@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import MoreUnitsButton from '@/components/MoreUnitsButton';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
 
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { celsiusAtom } from './Celsius';
 
@@ -16,7 +16,7 @@ import { kelvinDetails } from './Kelvin';
 
 export default function Temp() {
 
-    const [expanded, setExpanded] = useAtom(expandedAtom);
+    const expanded = useAtomValue(expandedAtom);
 
     const [, setFocused] = useAtom(focusedAtom);
 
@@ -43,9 +43,7 @@ export default function Temp() {
                         </div>
                     </>   
                 :
-                    <div className='flex justify-center my-16'>
-                        <Button variant='ghost2' onClick={() => setExpanded(true)}>+ More Units</Button>
-                    </div>
+                    <MoreUnitsButton />
                 }
 
         </div>

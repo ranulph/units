@@ -6,6 +6,7 @@ import { DatePicker } from '@/components/DatePicker';
 import AddEntry from '@/components/AddEntry';
 import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
+import { motion } from 'framer-motion';
 
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { countCal1Atom } from '@/app/Atoms';
@@ -56,7 +57,11 @@ export default function DateTools() {
   return (
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
         <Header title='Date' date={true} clear={clear} />
-        <div className='px-1 flex flex-col'>
+        <motion.div
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 0 }} 
+        className='px-1 flex flex-col'>
 
             <Card className='mt-3 active:scale-100 w-full hover:cursor-default hover:bg-transparent dark:hover:bg-transparent active:shadow-none'>
                 <CardContent className='flex flex-col mt-2'>
@@ -95,7 +100,7 @@ export default function DateTools() {
                 </CardContent>  
             </Card>
            
-        </div>
+        </motion.div>
     </main>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useAtom, PrimitiveAtom, WritableAtom } from "jotai";
 import { focusedAtom, activeAtom } from "@/app/Atoms";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function UnitEntry(
 { 
@@ -47,7 +48,12 @@ export default function UnitEntry(
     }
   
     return (
-            <div data-norightborder={noRightBorder} className="transition-transform ease-out hover:[transform:scale(1.01)] data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-accent hover:border-neutral-300 dark:hover:border-neutral-800 dark:hover:bg-card/90 hover:text-card-foreground hover:shadow-sm active:shadow-inner">
+            <motion.div
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 0 }}
+            whileHover={{ scale: 1.01 }} 
+            data-norightborder={noRightBorder} className="transition-transform ease-out data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-accent hover:border-neutral-300 dark:hover:border-neutral-800 dark:hover:bg-card/90 hover:text-card-foreground hover:shadow-sm active:shadow-inner">
                 <div className="flex-1 max-w-fit" onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
                     {unitDetails.name}
                 </div>
@@ -63,8 +69,6 @@ export default function UnitEntry(
                         {unitDetails.unit}
                     </div>
                 </div>
-            </div>
-
-
+            </motion.div>
     )
 }

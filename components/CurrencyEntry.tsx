@@ -8,6 +8,7 @@ import accounting from "accounting";
 import { LoopIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { currencyEntryItem } from "@/app/types";
+import { motion } from "framer-motion";
 
 const fetchCurrency = async (currency: string) => {
     const currencyEntryItem: currencyEntryItem = await fetch('/api/currency/', {
@@ -74,7 +75,12 @@ export default function CurrencyEntry({
     }
    
     return (
-            <div data-isFocused={isFocused} className="flex flex-col text-lg justify-between items-center md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:text-card-foreground transition-transform ease-out md:hover:[transform:scale(1.01)] md:hover:bg-accent md:hover:border-neutral-300 md:dark:hover:border-neutral-800 md:dark:hover:bg-card/90 md:hover:shadow-sm md:active:shadow-inner data-[isFocused=true]:bg-accent data-[isFocused=true]:border-neutral-300 data-[isFocused=true]:text-card-foreground data-[isFocused=true]:dark:border-neutral-800 data-[isFocused=true]:dark:bg-card/90 data-[isFocused=true]:shadow-sm data-[isFocused=true]:[transform:scale(1.01)]">
+            <motion.div layout
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 0 }}  
+            whileHover={{ scale: 1.01 }} 
+            data-isFocused={isFocused} className="flex flex-col text-lg justify-between items-center md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:text-card-foreground transition-transform ease-out md:hover:bg-accent md:hover:border-neutral-300 md:dark:hover:border-neutral-800 md:dark:hover:bg-card/90 md:hover:shadow-sm md:active:shadow-inner data-[isFocused=true]:bg-accent data-[isFocused=true]:border-neutral-300 data-[isFocused=true]:text-card-foreground data-[isFocused=true]:dark:border-neutral-800 data-[isFocused=true]:dark:bg-card/90 data-[isFocused=true]:shadow-sm data-[isFocused=true]:[transform:scale(1.01)]">
                 <div className="flex w-full justify-between md:mt-2 items-center">
                     <div className="flex items-center">
                             <div className="h-8 w-12">
@@ -105,7 +111,7 @@ export default function CurrencyEntry({
                         <div className="text-xs text-muted-foreground">{data?.name}{" "}{data?.symbol_native}</div>
                     }
                 </div>
-            </div>
+            </motion.div>
     )
 }
 

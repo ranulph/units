@@ -7,6 +7,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
   } from "@/components/ui/tooltip";
+import { motion } from "framer-motion";
 
 import { useAtom } from "jotai";
 import { activeAtom } from '@/app/Atoms';
@@ -22,7 +23,11 @@ export default function Header({ title, clear, date, currency }: { title: string
 
         return (
         <>
-            <div className='flex justify-between items-baseline px-1'>
+            <motion.div
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 0 }} 
+            className='flex justify-between items-baseline px-1'>
                 <Link href="/">
                     <h1 className="text-4xl font-extrabold tracking-tight pl-2" onClick={() => clear()}>
                         {title}
@@ -68,7 +73,7 @@ export default function Header({ title, clear, date, currency }: { title: string
                         </Tooltip>
                     </div>
                 </TooltipProvider>
-            </div>
+            </motion.div>
         </>
     )
 }

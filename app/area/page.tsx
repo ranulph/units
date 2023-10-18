@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import UnitEntry from '@/components/UnitEntry';
+import MoreUnitsButton from '@/components/MoreUnitsButton';
 
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { expandedAtom, focusedAtom } from '@/app/Atoms';
 import { squareMetresAtom } from './SquareMetres';
 
@@ -19,7 +19,7 @@ import { squareMilesDetails } from './SquareMiles';
 
 export default function Area() {
 
-    const [expanded, setExpanded] = useAtom(expandedAtom);
+    const expanded = useAtomValue(expandedAtom);
 
     const [, setFocused] = useAtom(focusedAtom);
 
@@ -49,9 +49,7 @@ export default function Area() {
                         </div>
                     </>   
                 :
-                    <div className='flex justify-center my-16'>
-                        <Button variant='ghost2' onClick={() => setExpanded(true)}>+ More Units</Button>
-                    </div>
+                    <MoreUnitsButton />
                 }
 
         </div>

@@ -63,8 +63,7 @@ export const addDurationAtom = atom<Duration>(
 export const additionAtom = atom<Date | undefined>(
     get => {
             const newDate = add(get(addCalAtom) ?? new Date(1), get(addDurationAtom))
-            const checkEqual = compareAsc(newDate, new Date(1))
-            if (checkEqual === 0) {
+            if (get(addCalAtom) === undefined) {
                 return undefined
             }
             return newDate

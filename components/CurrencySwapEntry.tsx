@@ -18,7 +18,7 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
     };
 
     return (
-            <div className="flex flex-col justify-between items-center text-base md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:bg-card hover:text-card-foreground hover:shadow active:shadow-inner transition-colors">
+            <div className="flex flex-col justify-between items-center text-base md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:text-card-foreground transition-transform ease-out hover:[transform:scale(1.01)] hover:bg-accent hover:border-neutral-300 dark:hover:border-neutral-800 dark:hover:bg-card/90 hover:shadow-sm active:shadow-inner">
                 <div className="flex w-full justify-between md:mt-2 items-center">
                     <div className="flex items-center">
                             <div className="h-8 w-12">

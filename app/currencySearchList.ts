@@ -1224,15 +1224,6 @@ export const currencySearchList = [
         }
     },
     {
-        "key": "USD",
-        "value": {
-            "code": "USD",
-            "name": "United States Dollar",
-            "countryCode": "US",
-            "flag": "https://images.identify.run/flags/us.svg"
-        }
-    },
-    {
         "key": "UYU",
         "value": {
             "code": "UYU",

@@ -1,7 +1,6 @@
 'use client'
 
 import { useAtom, PrimitiveAtom, WritableAtom } from "jotai";
-
 import { focusedAtom, activeAtom } from "@/app/Atoms";
 
 export default function UnitEntry(
@@ -46,9 +45,9 @@ export default function UnitEntry(
     if (unitDetails.unit.length > 3) {
         noRightBorder = true;
     }
-    
+  
     return (
-            <div data-norightborder={noRightBorder} className="data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-card hover:text-card-foreground hover:shadow active:shadow-inner transition-colors">
+            <div data-norightborder={noRightBorder} className="transition-transform ease-out hover:[transform:scale(1.01)] data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-accent hover:border-neutral-300 dark:hover:border-neutral-800 dark:hover:bg-card/90 hover:text-card-foreground hover:shadow-sm active:shadow-inner">
                 <div className="flex-1 max-w-fit" onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
                     {unitDetails.name}
                 </div>

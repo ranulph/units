@@ -17,8 +17,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "glow-conic":
-          "conic-gradient(from 180deg at 50% 50%, #506247 0deg, #506247 180deg)",
+        "glow-conic": "conic-gradient(from 180deg at 50% 50%, #506247 0deg, #506247 180deg)",
       },
       colors: {
         border: "hsl(var(--border))",

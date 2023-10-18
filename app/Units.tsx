@@ -1,9 +1,11 @@
 'use client'
 
+import { useEffect, useRef } from 'react';
 import { ModeToggle } from '@/components/ui/modetoggle';
 import UnitCard from '../components/UnitCard';
 import { Button } from '@/components/ui/button';
 import { useAtom, useSetAtom } from 'jotai';
+import { Gradient } from '@/components/ui/gradient';
 
 import { focusedAtom, cardsExpandedAtom, expandedAtom, activeAtom, swapViewAtom } from '@/app/Atoms';
 
@@ -22,6 +24,26 @@ export default function Units() {
         setSwapView(false);
     };
 
+    const mRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+
+        const updateMousePostion = (ev: MouseEvent) => {
+            if (!mRef.current) return
+            const { clientX, clientY } = ev;
+            mRef.current.style.setProperty('--x', `${clientX - 50}px`);
+            mRef.current.style.setProperty('--y', `${clientY - 50}px`);
+
+        }
+
+        window.addEventListener('mousemove', updateMousePostion)
+
+        return () => {
+            window.removeEventListener('mousemove', updateMousePostion)
+        }
+
+    }, [])
+
     return (
         <>
             <div className='flex justify-between items-baseline px-1'>
@@ -32,7 +54,7 @@ export default function Units() {
                     <ModeToggle />
                 </div>
             </div>
-            <div className='flex flex-wrap justify-center mt-2' onClick={() => cardClick()}>
+            <div className='flex flex-wrap justify-center mt-2 [perspective:1500px]' onClick={() => cardClick()}>
                 <UnitCard name='Weight' icon='weight' />
                 <UnitCard name='Length' icon='length' />
                 <UnitCard name='Temp' icon='thermo' />
@@ -43,7 +65,7 @@ export default function Units() {
                 {cardsExpanded ?
                     <>
                         <div className='mx-10 py-10 mt-2 border-x'></div>
-                        <div className='flex flex-wrap justify-center mt-2 mb-20' onClick={() => cardClick()}>
+                        <div className='flex flex-wrap justify-center mt-2 mb-20 [perspective:1500px]' onClick={() => cardClick()}>
                             <UnitCard name='Speed' icon='speed' />
                             <UnitCard name='Area' icon='area' />
                             <UnitCard name='Time' icon='time2' />

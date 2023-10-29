@@ -2,7 +2,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/toaster";
 import { Gradient } from "@/components/ui/gradient";
 
 export const runtime = 'edge';
@@ -47,7 +46,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <body className={`${inter.className}`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
-              <Toaster />
           </ThemeProvider>
           <Gradient className="top-[-500px] opacity-[0.15] w-[1000px] h-[800px] pointer-events-none" />
         </body> 

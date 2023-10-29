@@ -80,7 +80,7 @@ export default function CurrencyEntry({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 0 }}  
             whileHover={{ scale: 1.01 }} 
-            data-isFocused={isFocused} className="flex flex-col text-lg justify-between items-center md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:text-card-foreground transition-transform ease-out md:hover:bg-accent md:hover:border-neutral-300 md:dark:hover:border-neutral-800 md:dark:hover:bg-card/90 md:hover:shadow-sm md:active:shadow-inner data-[isFocused=true]:bg-accent data-[isFocused=true]:border-neutral-300 data-[isFocused=true]:text-card-foreground data-[isFocused=true]:dark:border-neutral-800 data-[isFocused=true]:dark:bg-card/90 data-[isFocused=true]:shadow-sm data-[isFocused=true]:[transform:scale(1.01)]">
+            data-isfocused={isFocused} className="flex flex-col text-lg justify-between items-center md:text-xl my-2 h-16 md:h-20 p-4 rounded-xl border hover:text-card-foreground transition-transform ease-out md:hover:bg-accent md:hover:border-neutral-300 md:dark:hover:border-neutral-800 md:dark:hover:bg-card/90 md:hover:shadow-sm md:active:shadow-inner data-[isfocused=true]:bg-accent data-[isfocused=true]:border-neutral-300 data-[isfocused=true]:text-card-foreground data-[isfocused=true]:dark:border-neutral-800 data-[isfocused=true]:dark:bg-card/90 data-[isfocused=true]:shadow-sm data-[isfocused=true]:[transform:scale(1.01)]">
                 <div className="flex w-full justify-between md:mt-2 items-center">
                     <div className="flex items-center">
                             <div className="h-8 w-12">

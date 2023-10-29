@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react';
 import { ModeToggle } from '@/components/ui/modetoggle';
 import UnitCard from '../components/UnitCard';
 import { Button } from '@/components/ui/button';
@@ -23,26 +22,6 @@ export default function Units() {
         setActive(false);
         setSwapView(false);
     };
-
-    const mRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-
-        const updateMousePostion = (ev: MouseEvent) => {
-            if (!mRef.current) return
-            const { clientX, clientY } = ev;
-            mRef.current.style.setProperty('--x', `${clientX - 50}px`);
-            mRef.current.style.setProperty('--y', `${clientY - 50}px`);
-
-        }
-
-        window.addEventListener('mousemove', updateMousePostion)
-
-        return () => {
-            window.removeEventListener('mousemove', updateMousePostion)
-        }
-
-    }, [])
 
     return (
         <>  

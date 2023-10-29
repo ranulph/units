@@ -29,20 +29,18 @@ export default function UnitCard({ name, icon }: { name: string; icon: string })
 
                         e.currentTarget.style.setProperty("--x-rotation", `${yRotation}deg`)
                         e.currentTarget.style.setProperty("--y-rotation", `${xRotation}deg`)
-                        e.currentTarget.style.setProperty("--x", `${xPercentage * 100}%`)
-                        e.currentTarget.style.setProperty("--y", `${yPercentage * 100}%`)
                     }}
-                className='group relative m-1 transition-transform ease-out hover:[transform:rotateX(var(--x-rotation))_rotateY(var(--y-rotation))_scale(1.03)] grow w-1/4'>
-                    <Link href={linkPath}>
-                        <CardHeader>
-                            <div className='flex justify-center'>
-                                <img src={iconPath} className='h-16 md:h-20' alt={name} />
-                            </div>
-                        </CardHeader>
-                        <CardContent>
-                            <p className='text-center text-foreground/30'>{name}</p>
-                        </CardContent>
-                    </Link>
+                    className='group relative m-1 transition-transform ease-out hover:[transform:rotateX(var(--x-rotation))_rotateY(var(--y-rotation))_scale(1.03)] grow w-1/4'>
+                        <Link href={linkPath}>
+                            <CardHeader>
+                                <div className='flex justify-center'>
+                                    <img src={iconPath} className='h-16 md:h-20' alt={name} />
+                                </div>
+                            </CardHeader>
+                            <CardContent>
+                                <p className='text-center text-foreground/30'>{name}</p>
+                            </CardContent>
+                        </Link>
                 </Card>
     )
 }

@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@cloudflare/workers-types':
-    specifier: ^4.20231010.0
-    version: 4.20231010.0
   '@radix-ui/react-dropdown-menu':
     specifier: ^2.0.5
     version: 2.0.6(@types/react-dom@18.2.8)(@types/react@18.2.24)(react-dom@18.2.0)(react@18.2.0)
@@ -109,6 +106,9 @@ devDependencies:
   '@cloudflare/next-on-pages':
     specifier: '1'
     version: 1.6.3(vercel@32.3.1)(wrangler@3.10.1)
+  '@cloudflare/workers-types':
+    specifier: ^4.20231010.0
+    version: 4.20231010.0
   '@types/accounting':
     specifier: ^0.4.3
     version: 0.4.3
@@ -1385,7 +1385,7 @@ packages:
 
   /@cloudflare/workers-types@4.20231010.0:
     resolution: {integrity: sha512-Jscqg52ScJMTMRHHVeoUvXYYiXPT4V59NKaClQVju9B6oPAzuePFYHwi5PLQ5Yr+xEbJ6+bHuq1aYV/69z6L0w==}
-    dev: false
+    dev: true
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}

@@ -15,6 +15,7 @@ import { daysDetails } from './Days';
 import { secondsDetails } from './Seconds';
 import { yearsDetails } from './Years';
 import { millisecondsDetails } from './Milliseconds';
+import { weeksDetails } from './Weeks';
 
 
 
@@ -47,6 +48,7 @@ export default function Time() {
                         <div className='mx-10 py-10 border-x'></div>
                         <div className='mb-20'>
                             <UnitEntry unitDetails={yearsDetails} />
+                            <UnitEntry unitDetails={weeksDetails} />
                             <UnitEntry unitDetails={millisecondsDetails} />
                      
                         </div>

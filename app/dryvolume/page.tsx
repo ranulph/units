@@ -13,6 +13,8 @@ import { cubicMetresDetails } from './CubicMetres';
 import { litresDetails } from './Litres';
 import { cubicFeetDetails } from './CubicFeet';
 import { cubicInchesDetails } from './CubicInches'; 
+import { cubicYardsDetails } from './CubicYards';
+
 
 export default function DryVolume() {
 
@@ -41,6 +43,7 @@ export default function DryVolume() {
                         <div className='mx-10 py-10 border-x '></div>
                         <div className='mb-20'>
                             <UnitEntry unitDetails={cubicInchesDetails} />
+                            <UnitEntry unitDetails={cubicYardsDetails} />
                         </div>
                     </>   
                 :

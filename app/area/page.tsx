@@ -15,6 +15,7 @@ import { hectareDetails } from './Hectare';
 import { squareFeetDetails } from './SquareFeet';
 import { squareKilometeresDetails } from './SquareKilometres';
 import { squareMilesDetails } from './SquareMiles';
+import { squareYardsDetails } from './SquareYards';
 
 
 export default function Area() {
@@ -46,6 +47,7 @@ export default function Area() {
                         <div className='mb-20'>
                             <UnitEntry unitDetails={squareMilesDetails} />
                             <UnitEntry unitDetails={squareKilometeresDetails} />
+                            <UnitEntry unitDetails={squareYardsDetails} />
                         </div>
                     </>   
                 :

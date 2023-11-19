@@ -2,7 +2,7 @@
 
 Unit and currency converter.
 
-See [Units.run](https://units.run).
+https://units.run
 
 Can be installed as a Progressive Web Application on mobile. Go to units.run on browser(only Safari on iOS), then select Options/Share/Menu and then select Install/Add to Home Screen.
 

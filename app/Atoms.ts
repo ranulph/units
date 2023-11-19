@@ -4,7 +4,6 @@ import intervalToDuration from 'date-fns/intervalToDuration';
 import formatDuration from 'date-fns/formatDuration';
 import formatDistanceStrict from 'date-fns/formatDistanceStrict';
 import add from 'date-fns/add';
-import compareAsc from 'date-fns/compareAsc';
 import fx from 'money';
 import accounting from "accounting";
 import { oldRates } from "./oldRates";

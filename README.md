@@ -14,4 +14,4 @@ On Currency section, saves selected currencies list and current currency rates i
 Also stores selected currencies flags in Local Storage as a SVG file converted into Base64 encoded strings.
 
 Currency rates update every hour.
-See (https://api.currencies.worlddata.run/ui) for currency api information. Requires Bearer Auth token.
+See https://api.currencies.worlddata.run/ui for currency api information. 

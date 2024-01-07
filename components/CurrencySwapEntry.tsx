@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { CheckIcon } from "@radix-ui/react-icons";
-import { swapCurrencyAtom, currencySwapAtom, swapViewAtom } from "@/app/Atoms";
-import { useSetAtom } from "jotai";
+import { swapCurrencyAtom, currencySwapAtom, swapViewAtom, currenciesAtom } from "@/app/Atoms";
+import { useSetAtom, useAtomValue } from "jotai";
 import { motion } from "framer-motion";
 
 export default function CurrencySwapEntry({ id, code, name, flag }: { id: number; code: string; name: string, flag: string }) {
@@ -11,6 +11,15 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
     const setSwapCurrency = useSetAtom(swapCurrencyAtom);
     const currencySwap = useSetAtom(currencySwapAtom);
     const setSwapView = useSetAtom(swapViewAtom);
+    const currencies = useAtomValue(currenciesAtom);
+
+    let isSelected = false;
+
+    currencies.forEach(curr => {
+        if (curr.currency === code) {
+            isSelected = true;
+        }
+    })
 
     const makeSwap = () => {
         setSwapCurrency({ id: id, currency: code});
@@ -35,7 +44,7 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
                         </div>
                     </div>
                     <div className='flex items-center'>
-                        <Link href='/currency/'><div onClick={() => makeSwap()} className="flex items-center cursor-pointer text-base mr-2 hover:text-accent-foreground active:scale-95 transition-all"><CheckIcon className='text-muted-foreground h-[1.2rem] w-[1.2rem] mr-1'/>Select</div></Link>
+                        {!isSelected && <Link href='/currency/'><div onClick={() => makeSwap()} className="flex items-center cursor-pointer text-base mr-2 hover:text-accent-foreground active:scale-95 transition-all"><CheckIcon className='text-muted-foreground h-[1.2rem] w-[1.2rem] mr-1'/>Select</div></Link> }
                     </div>
                 </div>
             </motion.div>

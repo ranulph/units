@@ -22,7 +22,7 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
     })
 
     const makeSwap = () => {
-        setSwapCurrency({ id: id, currency: code});
+        setSwapCurrency({ id: id, currency: code });
         currencySwap();
         setSwapView(false);
     };

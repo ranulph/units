@@ -25,6 +25,7 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
         setSwapCurrency({ id: id, currency: code });
         currencySwap();
         setSwapView(false);
+        history.go(-1);
     };
 
     return (
@@ -44,7 +45,7 @@ export default function CurrencySwapEntry({ id, code, name, flag }: { id: number
                         </div>
                     </div>
                     <div className='flex items-center'>
-                        {!isSelected && <Link href='/currency/'><div onClick={() => makeSwap()} className="flex items-center cursor-pointer text-base mr-2 hover:text-accent-foreground active:scale-95 transition-all"><CheckIcon className='text-muted-foreground h-[1.2rem] w-[1.2rem] mr-1'/>Select</div></Link> }
+                        {!isSelected && <div onClick={() => makeSwap()} className="flex items-center cursor-pointer text-base mr-2 hover:text-accent-foreground active:scale-95 transition-all"><CheckIcon className='text-muted-foreground h-[1.2rem] w-[1.2rem] mr-1'/>Select</div> }
                     </div>
                 </div>
             </motion.div>

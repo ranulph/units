@@ -38,7 +38,6 @@ export default function Currency() {
   };
 
 
-
   return (  
     <main className="flex flex-col max-w-lg mx-auto px-2 mt-24">
         <Header title='Currency' clear={clear} currency={true} />

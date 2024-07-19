@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: 'Units',
   description: 'For converting between units.',
   applicationName: 'Units',
-  authors: [{ name: 'Ranulph', url: 'https://ranulph.run' }],
+  authors: [{ name: 'Ranulph', url: 'https://common.run' }],
   keywords: "Units, unit converter, unit convertor, unit conversion, currency converter, currency conversion",
-  manifest: "https://units.run/site.webmanifest",
+  manifest: "https://units.run/manifest.json",
   icons: [{ rel: "icon", url: "https://units.run/android/android-launchericon-512-512.png" }, { rel: "apple-touch-icon", url: "https://units.run/ios/512.png" }],
   openGraph: {
     type: "website",
@@ -23,7 +23,15 @@ export const metadata: Metadata = {
     description: "For converting between units.",
     siteName: "Units",
   },
-  appleWebApp: { capable: true, title: "Units", statusBarStyle: "black-translucent" }
+  twitter: {
+    card: "summary",
+    title: 'Units',
+    description: 'For converting between units.',
+  },
+  appleWebApp: { capable: true, title: "Units", statusBarStyle: "default" },
+  formatDetection: {
+    telephone: false,
+  }
 };
 
 export const viewport: Viewport = {

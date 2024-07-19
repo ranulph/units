@@ -20,6 +20,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@serwist/next": "^9.0.3",
     "@types/node": "20.14.9",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -52,6 +53,7 @@
     "@types/accounting": "^0.4.5",
     "@types/money": "^0.2.3",
     "eslint-plugin-next-on-pages": "^1.12.0",
+    "serwist": "^9.0.3",
     "vercel": "^34.2.8",
     "wrangler": "^3.62.0"
   }

@@ -52,17 +52,18 @@ export default function UnitEntry(
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 0 }}
-                whileHover={{ scale: 1.01 }} 
+                whileHover={{ scale: 1.01 }}
+                onClick={() => document.getElementById(unitDetails.name)?.focus()}
                 data-norightborder={noRightBorder} className="transition-transform ease-out data-[norightborder=true]:border-r-0 flex items-center text-lg md:text-xl my-2 justify-between h-12 p-4 rounded-xl border hover:bg-accent hover:border-neutral-300 dark:hover:border-neutral-800 dark:hover:bg-card/90 hover:text-card-foreground hover:shadow-sm active:shadow-inner">
-                    <div className="flex-1 max-w-fit" onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
+                    <div className="flex-1 max-w-fit">
                         {unitDetails.name}
                     </div>
                     <div className='flex items-center'>
                         <div>
                             {active ?
-                            <input value={focused === '' ? '' : focused === unitDetails.name ? unitInput.toLocaleString() : unitFromBaseUnit.toLocaleString()} onFocus={() => setActive(false)} className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
+                            <input id={unitDetails.name} value={focused === '' ? '' : focused === unitDetails.name ? unitInput.toLocaleString() : unitFromBaseUnit.toLocaleString()} onFocus={() => setActive(false)} className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                             :
-                            <input autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus()} onChange={(e) => change(e.currentTarget.value)}  type="number" inputMode="decimal" className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
+                            <input id={unitDetails.name} autoFocus={unitDetails.isBaseUnit} value={focused === '' ? '' : focused === unitDetails.name ? unitInput : unitFromBaseUnit} onFocus={() => focus()} onChange={(e) => change(e.currentTarget.value)}  type="number" inputMode="decimal" className='text-right w-32 md:w-64 bg-transparent focus-visible:outline-none' />
                             }
                         </div>
                         <div className='ml-1 text-md md:text-lg text-left w-6 text-muted-foreground' onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}>
